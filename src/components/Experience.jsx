@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import { Office } from "./Office";
+import { Projects } from "./Projects";
 
 export const Experience = (props) => {
   const { section, menuOpened } = props;
@@ -56,14 +57,14 @@ export const Experience = (props) => {
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
         <Float>
-          <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
+          <mesh position={[1, -3, -15]} scale={[4, 4, 4]}>
             <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
               transparent
               distort={0.4}
               speed={4}
-              color={"red"}
+              color={"pink"}
             />
           </mesh>
         </Float>
@@ -95,6 +96,7 @@ export const Experience = (props) => {
           <Avatar animation={section === 0 ? "Falling" : "Standing"} />
         </group>
       </motion.group>
+      <Projects/>
     </>
   );
 };

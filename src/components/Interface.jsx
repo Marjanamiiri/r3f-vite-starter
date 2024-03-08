@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import { useAtom } from "jotai";
+import { currentProjectAtom, projects } from "./Projects";
 const Section = (props) => {
     const { children } = props;
 
@@ -64,7 +65,7 @@ const AboutSection = () => {
                 {/* I'm a computer system student at BCIT, */}
                 <br />
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
-                 Voluptatibus totam, porro sit alias nesciunt vel! Enim quaerat, <br />
+                Voluptatibus totam, porro sit alias nesciunt vel! Enim quaerat, <br />
                 iure odit magni aperiam voluptatibus expedita est
             </motion.p>
             <motion.button
@@ -105,7 +106,7 @@ const skills = [
     {
         title: "JavaScript",
         level: 85,
-    }, 
+    },
     {
         title: "HTML/CSS",
         level: 90,
@@ -232,31 +233,33 @@ const SkillsSection = () => {
 };
 
 const ProjectSection = () => {
+    const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
+
+    const nextProject = () => {
+        setCurrentProject((currentProject + 1) % projects.length);
+    };
+
+    const previousProject = () => {
+        setCurrentProject((currentProject - 1 + projects.length) % projects.length);
+    };
+
     return (
         <Section>
-            <h2 className="text-5xl font-bold">Projects</h2>
-            <motion.p
-                className="text-lg text-gray-600 mt-4"
-                initial={{
-                    opacity: 0,
-                    y: 25,
-                }}
-                whileInView={{
-                    opacity: 1,
-                    y: 0,
-                }}
-                transition={{
-                    duration: 1,
-                    delay: 1.5,
-                }}
-            >
-                <ul>
-                    <li><a href="#">Project 1</a></li>
-                    <li><a href="#">Project 2</a></li>
-                    <li><a href="#">Project 3</a></li>
-                    <li><a href="#">Project 4</a></li>
-                </ul>
-            </motion.p>
+            <div className="flex w-full h-full gap-8 items-center justify-center">
+                <button
+                    className="hover:text-indigo-600 transition-colors"
+                    onClick={previousProject}
+                >
+                    ← Previous
+                </button>
+                <h2 className="text-5xl font-bold">Projects</h2>
+                <button
+                    className="hover:text-indigo-600 transition-colors"
+                    onClick={nextProject}
+                >
+                    Next →
+                </button>
+            </div>
         </Section>
     );
 };
