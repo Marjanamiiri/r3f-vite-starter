@@ -9,7 +9,7 @@ import { motion } from "framer-motion-3d";
 import { useEffect } from "react";
 import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
-import { Office } from "./Office";
+// import { Office } from "./Office";
 import { Projects } from "./Projects";
 
 export const Experience = (props) => {
@@ -44,7 +44,7 @@ export const Experience = (props) => {
           y: section === 0 ? 0 : -1,
         }}
       >
-        <Office section={section} />
+        {/* <Office section={section} /> */}
       </motion.group>
 
       {/* SKILLS */}

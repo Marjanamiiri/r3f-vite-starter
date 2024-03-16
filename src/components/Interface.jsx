@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
+import React, { useRef, useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { currentProjectAtom, projects } from "./Projects";
 const Section = (props) => {
     const { children } = props;
@@ -48,7 +50,7 @@ const AboutSection = () => {
                 <span className="bg-white px-1 italic"> Marjan Amiri</span>
             </h1>
             <motion.p
-                className="text-lg text-gray-600 mt-4"
+                className="paragraph"
                 initial={{
                     opacity: 0,
                     y: 25,
@@ -62,30 +64,12 @@ const AboutSection = () => {
                     delay: 1.5,
                 }}
             >
-                {/* I'm a computer system student at BCIT, */}
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
-                Voluptatibus totam, porro sit alias nesciunt vel! Enim quaerat, <br />
-                iure odit magni aperiam voluptatibus expedita est
+                <p>A Computer Systems enthusiast currently pursuing a diploma at BCIT.<br />
+                    Based in BC, my passion lies in harmonizing technology and design. <br />
+                    Explore my portfolio for a glimpse into my journey where technical expertise meets creative innovation. <br />
+                    Welcome to the convergence of computer science and design excellence.<br />
+                </p>
             </motion.p>
-            <motion.button
-                className={`bg-indigo-600 text-white py-4 px-8 
-      rounded-lg font-bold text-lg mt-16`}
-                initial={{
-                    opacity: 0,
-                    y: 25,
-                }}
-                whileInView={{
-                    opacity: 1,
-                    y: 0,
-                }}
-                transition={{
-                    duration: 1,
-                    delay: 2,
-                }}
-            >
-                Contact me
-            </motion.button>
         </Section>
     );
 };
@@ -263,50 +247,48 @@ const ProjectSection = () => {
         </Section>
     );
 };
-
 const ContactSection = () => {
+    const form = useRef();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('service_508u6bb', 'template_9j5o9tz', form.current, {
+                publicKey: 'r3SBmy3THmKAVUVY1',
+            })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+    };
+    const isFormEmpty = () => {
+        return !name.trim() || !email.trim() || !message.trim();
+    };
+
     return (
         <Section>
-            <h2 className="text-5xl font-bold">Contact me</h2>
-            <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
-                <form>
-                    <label for="name" className="font-medium text-gray-900 block mb-1">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-                    />
-                    <label
-                        for="email"
-                        className="font-medium text-gray-900 block mb-1 mt-8"
-                    >
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-                    />
-                    <label
-                        for="email"
-                        className="font-medium text-gray-900 block mb-1 mt-8"
-                    >
-                        Message
-                    </label>
-                    <textarea
-                        name="message"
-                        id="message"
-                        className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-                    />
-                    <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 ">
-                        Submit
-                    </button>
-                </form>
-            </div>
+            <h2 className="text-5xl font-bold">Say hi</h2>
+            <h3 className="paragraph">Feel free to contact me anywhere on the internet, let's hang out!</h3>
+            <form ref={form} onSubmit={sendEmail} className="backdrop-blur-sm bg-white/30 ">
+                <label>Name</label>
+                <input type="text" name="from_name" value={name} onChange={(e) => setName(e.target.value)} />
+                <label>Email</label>
+                <input type="email" name="from_email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <label>Message</label>
+                <textarea name="message" value={message} onChange={(e) => setMessage(e.target.value)} /><br/>
+                <input type="submit" value="Send" className="sendbutton" disabled={isFormEmpty()} />
+            </form>
         </Section>
     );
 };
+
+
+
