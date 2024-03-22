@@ -8,7 +8,6 @@ import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { useEffect } from "react";
 import { framerMotionConfig } from "../config";
-import { Avatar } from "./Avatar";
 // import { Office } from "./Office";
 import { Projects } from "./Projects";
 
@@ -92,9 +91,6 @@ export const Experience = (props) => {
             />
           </mesh>
         </Float>
-        <group scale={[2, 2, 2]} position-y={-1.5}>
-          <Avatar animation={section === 0 ? "Falling" : "Standing"} />
-        </group>
       </motion.group>
       <Projects/>
     </>

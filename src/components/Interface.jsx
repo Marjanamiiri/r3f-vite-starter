@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { currentProjectAtom, projects } from "./Projects";
+import Type from "./Type";
 const Section = (props) => {
     const { children } = props;
 
@@ -64,11 +65,11 @@ const AboutSection = () => {
                     delay: 1.5,
                 }}
             >
-                <p>A Computer Systems enthusiast currently pursuing a diploma at BCIT.<br />
-                    Based in BC, my passion lies in harmonizing technology and design. <br />
-                    Explore my portfolio for a glimpse into my journey where technical expertise meets creative innovation. <br />
+                < Type />
+                <p>
                     Welcome to the convergence of computer science and design excellence.<br />
                 </p>
+
             </motion.p>
         </Section>
     );
@@ -283,7 +284,7 @@ const ContactSection = () => {
                 <label>Email</label>
                 <input type="email" name="from_email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label>Message</label>
-                <textarea name="message" value={message} onChange={(e) => setMessage(e.target.value)} /><br/>
+                <textarea name="message" value={message} onChange={(e) => setMessage(e.target.value)} /><br />
                 <input type="submit" value="Send" className="sendbutton" disabled={isFormEmpty()} />
             </form>
         </Section>
