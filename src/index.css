@@ -5,10 +5,11 @@
   width: 100vw;
   height: 100vh;
 }
-
+*{
+  
+}
 body {
   margin: 0;
-  border: 3em solid white;
   background-color: #edf2f4;
 
 }
@@ -48,7 +49,7 @@ textarea:hover{
   font-family: "Didact Gothic", sans-serif;
   font-size: large;
   cursor: pointer;
-  background-color: #ccc;
+  background-color: #8d99ae;
   border-radius: 20px;
   padding: 10px 30px;
   transition: .5s;
