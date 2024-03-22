@@ -37,7 +37,7 @@ export const Experience = (props) => {
       <ambientLight intensity={1} />
       <motion.group
         position={[1.5, 2, 3]}
-        scale={[0.9, 0.9, 0.9]}
+        scale={[10, 100, 0.9]}
         rotation-y={-Math.PI / 4}
         animate={{
           y: section === 0 ? 0 : -1,
@@ -63,7 +63,7 @@ export const Experience = (props) => {
               transparent
               distort={0.4}
               speed={4}
-              color={"pink"}
+              color={"#ef233c"}
             />
           </mesh>
         </Float>
@@ -75,19 +75,32 @@ export const Experience = (props) => {
               transparent
               distort={1}
               speed={5}
-              color="yellow"
+              color={"#ffc300"}
             />
           </mesh>
         </Float>
+
         <Float>
-          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -1, -11]}>
+          <mesh scale={[2, 2, 2]} position={[-3, -1, -11]}>
             <boxGeometry />
             <MeshWobbleMaterial
               opacity={0.8}
               transparent
               factor={1}
               speed={5}
-              color={"blue"}
+              color={"#0078ff"}
+            />
+          </mesh>
+        </Float>
+        <Float>
+          <mesh scale={[1, 2, 1]} position={[-4, 1, 1]}>
+            <sphereGeometry />
+            <MeshDistortMaterial
+              opacity={0.8}
+              transparent
+              factor={1}
+              speed={4}
+              color={"#33c313"}
             />
           </mesh>
         </Float>

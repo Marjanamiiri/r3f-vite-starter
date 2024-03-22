@@ -45,13 +45,13 @@ export const Interface = () => {
 const AboutSection = () => {
     return (
         <Section>
-            <h1 className="text-6xl font-extrabold leading-snug">
+            <h1 className="text-8xl text-[#2b2d42] font-extrabold leading-snug">
                 Hi, I'm
                 <br />
                 <span className="bg-white px-1 italic"> Marjan Amiri</span>
             </h1>
             <motion.p
-                className="paragraph"
+                className="text-2xl w-90 text-[#2b2d42] leading-snug"
                 initial={{
                     opacity: 0,
                     y: 25,
@@ -66,10 +66,25 @@ const AboutSection = () => {
                 }}
             >
                 < Type />
-                <p>
+            </motion.p>
+            <motion.p
+                className="paragraph"
+                initial={{
+                    opacity: 0,
+                    y: 25,
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    delay: 2,
+                }}
+            >
+                <p className="text-2xl w-90 text-[#2b2d42]">
                     Welcome to the convergence of computer science and design excellence.<br />
                 </p>
-
             </motion.p>
         </Section>
     );
@@ -77,27 +92,23 @@ const AboutSection = () => {
 
 const skills = [
     {
-        title: "Threejs / React Three Fiber / React",
-        level: 30,
-    },
-    {
-        title: "Nodejs",
-        level: 40,
+        title: "React Three Fiber / React.js",
+        level: 35,
     },
     {
         title: "Python",
         level: 80,
     },
     {
-        title: "JavaScript",
-        level: 85,
+        title: "UI / UX design + Figma",
+        level: 95,
     },
     {
-        title: "HTML/CSS",
+        title: "Front-end (HTML, CSS, JavaScript, jQuery)",
         level: 90,
     },
     {
-        title: "C / php / C#",
+        title: "Back-end (C, C++, PHP, Node.js, SQL, Java)",
         level: 20,
     },
 ];
@@ -127,7 +138,7 @@ const SkillsSection = () => {
                 <h2 className="text-5xl font-bold">Skills</h2>
                 <div className=" mt-8 space-y-4">
                     {skills.map((skill, index) => (
-                        <div className="w-64" key={index}>
+                        <div className="w-70" key={index}>
                             <motion.h3
                                 className="text-xl font-bold text-gray-800"
                                 initial={{
@@ -147,7 +158,7 @@ const SkillsSection = () => {
                             </motion.h3>
                             <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
                                 <motion.div
-                                    className="h-full bg-indigo-500 rounded-full "
+                                    className="h-full bg-[#8d99ae] rounded-full "
                                     style={{ width: `${skill.level}%` }}
                                     initial={{
                                         scaleX: 0,
@@ -191,7 +202,7 @@ const SkillsSection = () => {
                                 </motion.h3>
                                 <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
                                     <motion.div
-                                        className="h-full bg-indigo-500 rounded-full "
+                                        className="h-full bg-[#8d99ae] rounded-full "
                                         style={{ width: `${lng.level}%` }}
                                         initial={{
                                             scaleX: 0,
