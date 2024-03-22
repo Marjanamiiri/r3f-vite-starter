@@ -143,7 +143,7 @@ const languages = [
         level: 100,
     },
     {
-        title: "🇺🇸 English",
+        title: "🇨🇦 English",
         level: 80,
     },
     {
