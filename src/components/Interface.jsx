@@ -47,6 +47,7 @@ const AboutSection = (props) => {
     const { setSection } = props;
     return (
         <Section>
+            {/* <img className="" src="project/ReadyPlayerMe-Avatar.png" alt="Your Alt Text"/>  */}
             <h1 className="text-8xl text-[#2b2d42] font-extrabold leading-snug">
                 Hi, I'm
                 <br />
@@ -93,7 +94,7 @@ const AboutSection = (props) => {
                 className="sendbutton"
                 initial={{
                     opacity: 0,
-                    y: 25,
+                    y: 0,
                 }}
                 whileInView={{
                     opacity: 1,
@@ -101,7 +102,7 @@ const AboutSection = (props) => {
                 }}
                 transition={{
                     duration: 1,
-                    delay: 2,
+                    delay: 2.5,
                 }}
             >
                 Contact me
@@ -155,12 +156,12 @@ const SkillsSection = () => {
     return (
         <Section>
             <motion.div whileInView={"visible"}>
-                <h2 className="text-5xl font-bold">Skills</h2>
+                <h2 className="text-5xl text-[#2b2d42] font-bold">Skills</h2>
                 <div className=" mt-8 space-y-4">
                     {skills.map((skill, index) => (
                         <div className="w-70" key={index}>
                             <motion.h3
-                                className="text-xl font-bold text-gray-800"
+                                className="text-xl font-bold text-[#2b2d42]"
                                 initial={{
                                     opacity: 0,
                                 }}
@@ -199,12 +200,12 @@ const SkillsSection = () => {
                     ))}
                 </div>
                 <div>
-                    <h2 className="text-5xl font-bold mt-10">Languages</h2>
+                    <h2 className="text-5xl text-[#2b2d42] font-bold mt-10">Languages</h2>
                     <div className=" mt-8 space-y-4">
                         {languages.map((lng, index) => (
                             <div className="w-64" key={index}>
                                 <motion.h3
-                                    className="text-xl font-bold text-gray-800"
+                                    className="text-xl font-bold text-[#2b2d42]"
                                     initial={{
                                         opacity: 0,
                                     }}
@@ -261,16 +262,16 @@ const ProjectsSection = () => {
 
     return (
         <Section>
-            <div className="flex w-full h-full gap-8 items-center justify-center">
+            <div className="flex w-full h-full gap-8 items-center text-[#2b2d42] justify-center">
                 <button
-                    className="hover:text-indigo-600 transition-colors"
+                    className="hover:text-[#ef233c] transition-colors"
                     onClick={previousProject}
                 >
                     ← Previous
                 </button>
                 <h2 className="text-5xl font-bold">Projects</h2>
                 <button
-                    className="hover:text-indigo-600 transition-colors"
+                    className="hover:text-[#ef233c] transition-colors"
                     onClick={nextProject}
                 >
                     Next →
@@ -352,7 +353,7 @@ const ContactSection = () => {
             >
                 <div className="container pt-9">
                     <div className="mb-9 flex justify-center">
-                        <a href="https://www.instagram.com/marjanamiiri/" className="mr-9 text-neutral-800 dark:text-neutral-200">
+                        <a href="https://www.instagram.com/" className="mr-9 text-neutral-800 dark:text-neutral-200">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-4 w-4"
