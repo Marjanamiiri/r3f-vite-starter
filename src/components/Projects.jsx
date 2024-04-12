@@ -64,10 +64,10 @@ const Project = (props) => {
         position-y={0.3}
       />
       <Text
-        maxWidth={2}
+        maxWidth={3}
         anchorX={"left"}
         anchorY={"top"}
-        fontSize={0.2}
+        fontSize={0.18}
         position={[-1, -0.4, 0]}
       >
         {project.title.toUpperCase()}
@@ -85,7 +85,7 @@ const Project = (props) => {
   );
 };
 
-export const currentProjectAtom = atom(Math.floor(projects.length / 2));
+export const currentProjectAtom = atom(Math.floor(projects.length / 5));
 
 export const Projects = () => {
   const { viewport } = useThree();

@@ -15,6 +15,10 @@ export const Experience = (props) => {
   const { section, menuOpened } = props;
   const { viewport } = useThree();
 
+  const isMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 12;
+  const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
+
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
 
@@ -47,11 +51,14 @@ export const Experience = (props) => {
       </motion.group>
 
       {/* SKILLS */}
-      <motion.group
-        position={[0, -1.5, -10]}
-        animate={{
-          z: section === 1 ? 0 : -10,
-          y: section === 1 ? -viewport.height : -1.5,
+<motion.group
+        position={[
+          0,
+          isMobile ? -viewport.height : -1.5 * officeScaleRatio,
+          -10,
+        ]}
+        transition={{
+          duration: 0.8,
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
@@ -94,7 +101,7 @@ export const Experience = (props) => {
         </Float>
         <Float>
           <mesh scale={[1, 2, 1]} position={[-4, 1, 1]}>
-            <sphereGeometry />
+            <ringGeometry />
             <MeshDistortMaterial
               opacity={0.8}
               transparent

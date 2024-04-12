@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { currentProjectAtom, projects } from "./Projects";
 import Type from "./Type";
+
 const Section = (props) => {
     const { children, mobileTop } = props;
     return (
@@ -48,13 +49,14 @@ const AboutSection = (props) => {
     return (
         <Section mobileTop>
             {/* <img className="" src="project/ReadyPlayerMe-Avatar.png" alt="Your Alt Text"/>  */}
-            <h1 className="text-8xl  text-[#2b2d42] font-extrabold leading-snug">
+            <h1 className="text-4xl md:text-8xl text-[#2b2d42] font-extrabold leading-snug mt-8 md:mt-0">
                 Hi, I'm
                 <br />
-                <span className="bg-white px-1 italic"> Marjan Amiri</span>
+                
             </h1>
+            <h1 className="bg-white px-1 italic text-4xl md:text-8xl text-[#2b2d42] font-extrabold leading-snug mt-3"> Marjan Amiri</h1>
             <motion.p
-                className="text-2xl w-90 text-[#2b2d42] leading-snug"
+                className="text-2xl w-90 text-[#2b2d42] leading-snug mt-4"
                 initial={{
                     opacity: 0,
                     y: 25,
@@ -155,13 +157,13 @@ const languages = [
 const SkillsSection = () => {
     return (
         <Section>
-            <motion.div whileInView={"visible"}>
-                <h2 className="text-5xl text-[#2b2d42] font-bold">Skills</h2>
+            <motion.div className="w-full" whileInView={"visible"}>
+                <h2 className="text-3xl md:text-5xl text-[#2b2d42] font-bold">Skills</h2>
                 <div className=" mt-8 space-y-4">
                     {skills.map((skill, index) => (
-                        <div className="w-70" key={index}>
+                        <div className="w-full md:w-4/6" key={index}>
                             <motion.h3
-                                className="text-xl font-bold text-[#2b2d42]"
+                                className="text-lg md:text-xl font-bold text-[#2b2d42]"
                                 initial={{
                                     opacity: 0,
                                 }}
@@ -200,12 +202,12 @@ const SkillsSection = () => {
                     ))}
                 </div>
                 <div>
-                    <h2 className="text-5xl text-[#2b2d42] font-bold mt-10">Languages</h2>
+                    <h2 className="text-3xl md:text-5xl text-[#2b2d42] font-bold mt-10">Languages</h2>
                     <div className=" mt-8 space-y-4">
                         {languages.map((lng, index) => (
-                            <div className="w-64" key={index}>
+                            <div className="w-full md:w-4/6" key={index}>
                                 <motion.h3
-                                    className="text-xl font-bold text-[#2b2d42]"
+                                    className="text-lg md:text-xl font-bold text-[#2b2d42]"
                                     initial={{
                                         opacity: 0,
                                     }}
@@ -269,7 +271,7 @@ const ProjectsSection = () => {
                 >
                     ← Previous
                 </button>
-                <h2 className="text-5xl font-bold">Projects</h2>
+                <h2 className="text-3xl md:text-5xl font-bold">Projects</h2>
                 <button
                     className="hover:text-[#ef233c] transition-colors"
                     onClick={nextProject}
@@ -288,27 +290,32 @@ const ContactSection = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
+    
         emailjs
             .sendForm('service_508u6bb', 'template_9j5o9tz', form.current, {
                 publicKey: 'r3SBmy3THmKAVUVY1',
             })
             .then(
-                () => {
-                    console.log('SUCCESS!');
+                (response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Display success message to the user
+                    alert('Your message has been sent successfully!');
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
+                    // Display error message to the user
+                    alert('Failed to send message. Please try again later.');
                 },
             );
     };
+    
     const isFormEmpty = () => {
         return !name.trim() || !email.trim() || !message.trim();
     };
 
     return (
         <Section>
-            <h2 className="text-5xl font-bold">Say hi</h2>
+           <h2 className="text-5xl font-bold">Say hi</h2>
             <h3 className="paragraph">Feel free to contact me anywhere on the internet, let's hang out!</h3>
             <motion.p
                 className="p-8 max-w-screen-2xl mx-auto item-center leading-snug"
