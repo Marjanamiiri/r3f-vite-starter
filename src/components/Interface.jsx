@@ -5,31 +5,31 @@ import emailjs from '@emailjs/browser';
 import { currentProjectAtom, projects } from "./Projects";
 import Type from "./Type";
 const Section = (props) => {
-    const { children } = props;
-
+    const { children, mobileTop } = props;
     return (
         <motion.section
-            className={`
-  h-screen w-screen p-8 max-w-screen-2xl mx-auto
-  flex flex-col items-start justify-center
-  `}
-            initial={{
-                opacity: 0,
-                y: 50,
-            }}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                    duration: 1,
-                    delay: 0.6,
-                },
-            }}
+          className={`
+      h-screen w-screen p-8 max-w-screen-2xl mx-auto
+      flex flex-col items-start
+      ${mobileTop ? "justify-start md:justify-center" : "justify-center"}
+      `}
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1,
+              delay: 0.6,
+            },
+          }}
         >
-            {children}
+          {children}
         </motion.section>
-    );
-};
+      );
+    };
 
 export const Interface = (props) => {
     const { setSection } = props;
@@ -46,9 +46,9 @@ export const Interface = (props) => {
 const AboutSection = (props) => {
     const { setSection } = props;
     return (
-        <Section>
+        <Section mobileTop>
             {/* <img className="" src="project/ReadyPlayerMe-Avatar.png" alt="Your Alt Text"/>  */}
-            <h1 className="text-8xl text-[#2b2d42] font-extrabold leading-snug">
+            <h1 className="text-8xl  text-[#2b2d42] font-extrabold leading-snug">
                 Hi, I'm
                 <br />
                 <span className="bg-white px-1 italic"> Marjan Amiri</span>

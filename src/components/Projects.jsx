@@ -19,6 +19,18 @@ export const projects = [
     image: "project/weathertide.png",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
+  {
+    title: "Natural Gum Mastic",
+    url: "https://naturalgummastic.com",
+    image: "project/mastic.png",
+    description: "Still working..."
+  },
+  {
+    title: "IC Auto Tek",
+    url: "https://icautotek.com",
+    image: "project/icautotek.png",
+    description: "Still working..."
+  },
 ];
 
 const Project = (props) => {
