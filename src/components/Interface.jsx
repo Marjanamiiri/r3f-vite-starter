@@ -316,7 +316,7 @@ const ContactSection = () => {
     return (
         <Section>
            <h2 className="text-5xl font-bold">Say hi</h2>
-            <h3 className="paragraph">Feel free to contact me anywhere on the internet, let's hang out!</h3>
+            <h3 className="paragraph">Feel free to contact me anywhere on the internet, let's get in touch!</h3>
             <motion.p
                 className="p-8 max-w-screen-2xl mx-auto item-center leading-snug"
                 initial={{
