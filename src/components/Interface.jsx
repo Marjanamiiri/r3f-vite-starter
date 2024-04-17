@@ -287,6 +287,7 @@ const ContactSection = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [messageSent, setMessageSent] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -296,16 +297,16 @@ const ContactSection = () => {
                 publicKey: 'r3SBmy3THmKAVUVY1',
             })
             .then(
-                (response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    // Display success message to the user
-                    alert('Your message has been sent successfully!');
+                () => {
+                    setMessageSent(true);
+                    setName("");
+                    setEmail("");
+                    setMessage("");
                 },
                 (error) => {
-                    console.log('FAILED...', error.text);
-                    // Display error message to the user
-                    alert('Failed to send message. Please try again later.');
-                },
+                    console.error(error);
+                    alert("Ahh, something went wrong. Please try again.");
+                }
             );
     };
     
@@ -315,6 +316,12 @@ const ContactSection = () => {
 
     return (
         <Section>
+            {messageSent ? (
+                <h1 className="bg-white px-1 italic text-4xl text-[#2b2d42] font-extrabold text-center m-9"> 
+                    Thank you! I will get back to you as soon as possible.
+                </h1>
+            ) : (
+            <>
            <h2 className="text-5xl font-bold">Say hi</h2>
             <h3 className="paragraph">Feel free to contact me anywhere on the internet, let's get in touch!</h3>
             <motion.p
@@ -342,7 +349,8 @@ const ContactSection = () => {
                     <input type="submit" value="Send" className="sendbutton" disabled={isFormEmpty()} />
                 </form>
             </motion.p>
-
+            </>
+            )}
             <motion.p
                 className="p-8 max-w-screen-2xl mx-auto item-center leading-snug"
                 initial={{
@@ -397,7 +405,7 @@ const ContactSection = () => {
 
             </motion.p>
 
-
+            
         </Section>
 
     );
