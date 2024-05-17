@@ -115,24 +115,24 @@ const AboutSection = (props) => {
 
 const skills = [
     {
-        title: "React Three Fiber / React.js",
-        level: 35,
-    },
-    {
-        title: "Python",
-        level: 80,
-    },
-    {
-        title: "UI / UX design + Figma",
+        title: "User Interface and User Experience Design",
         level: 95,
     },
     {
-        title: "Front-end (HTML, CSS, JavaScript, jQuery)",
+        title: "Framer",
+        level: 80,
+    },
+    {
+        title: "Figma",
+        level: 75,
+    },
+    {
+        title: "Front-end (HTML, CSS, JavaScript, jQuery, React Three Fiber / React.js)",
         level: 90,
     },
     {
-        title: "Back-end (C, C++, PHP, Node.js, SQL, Java)",
-        level: 20,
+        title: "Back-end (C, C++, PHP, Node.js, SQL, Java, Python)",
+        level: 35,
     },
 ];
 const languages = [
