@@ -21,15 +21,15 @@ export const projects = [
   },
   {
     title: "Natural Gum Mastic",
-    url: "https://naturalgummastic.com",
-    image: "project/mastic.png",
-    description: "Still working..."
+    url: "https://modest-anything-743318.framer.app",
+    image: "project/naturalGumMastic.png",
+    description: "A framer project working with interface"
   },
   {
-    title: "IC Auto Tek",
-    url: "https://icautotek.com",
-    image: "project/icautotek.png",
-    description: "Still working..."
+    title: "Canaball",
+    url: "https://trusting-designers-367680.framer.app",
+    image: "project/canaball.png",
+    description: "A framer project working with interface"
   },
 ];
 
