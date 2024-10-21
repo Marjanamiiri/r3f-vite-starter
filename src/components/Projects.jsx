@@ -21,7 +21,7 @@ export const projects = [
   },
   {
     title: "Natural Gum Mastic",
-    url: "https://modest-anything-743318.framer.app",
+    url: "https://masticgum.framer.website",
     image: "project/naturalGumMastic.png",
     description: "A framer project working with interface"
   },
